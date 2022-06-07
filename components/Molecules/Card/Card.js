@@ -9,6 +9,7 @@ export const Card = ({
   currentIndex,
   changeIndexTo,
   children,
+  isLast,
 }) => {
   return (
     <div className={`keen-slider__slide  flex flex-col `}>
@@ -17,7 +18,11 @@ export const Card = ({
           currentIndex === index ? 'bg-green-400' : 'bg-black'
         } text-white cursor-pointer  `}
         onClick={() => {
-          changeIndexTo(index)
+          if (!isLast) {
+            changeIndexTo(index)
+            return
+          }
+          changeIndexTo(0)
         }}
       >
         {index}

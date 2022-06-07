@@ -15,19 +15,22 @@ export const Slider = () => {
       slides: {
         perView: 3.4,
         origin: 'center',
+
         spacing: 18,
       },
 
       slideChanged(e) {
-        setSelectedIndex(e.track.details.rel)
+        setSelectedIndex(e.track.details.rel + 1)
       },
     },
     []
   )
 
   function changeIndex(newIndex) {
-    slider.current.moveToIdx(newIndex)
-    setSelectedIndex(newIndex)
+    if (newIndex === 0) {
+      newIndex = slider.current.slides.length
+    }
+    slider.current.moveToIdx(newIndex - 1)
   }
 
   return (
@@ -35,7 +38,7 @@ export const Slider = () => {
       <h1 className="  w-full text-center ">
         Don’t trust us, trust our clients
       </h1>
-      <div ref={refCallback} className="keen-slider ">
+      <div ref={refCallback} className="keen-slider">
         <Card
           index={1}
           currentIndex={selectedIndex}
@@ -84,7 +87,8 @@ freedom.`}
           changeIndexTo={changeIndex}
         ></Card>
         <Card
-          index={0}
+          index={6}
+          isLast
           currentIndex={selectedIndex}
           message={`Owning my home allowed me to
 become an entrepreneur and
