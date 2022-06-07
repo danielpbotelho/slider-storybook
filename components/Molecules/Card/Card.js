@@ -38,7 +38,13 @@ export const Card = ({
         >
           {message}
         </Text>
-        <Text variant="text-detail">{detail}</Text>
+
+        <Text
+          variant="text-detail"
+          additionalClasses="pb-[10px] pr-[24px] sm:pr-0"
+        >
+          {detail}
+        </Text>
       </div>
     </div>
   )

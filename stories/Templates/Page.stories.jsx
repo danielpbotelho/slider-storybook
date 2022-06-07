@@ -16,9 +16,4 @@ const Template = (args) => <Page {...args} />
 
 // More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
 
-export const LoggedIn = Template.bind({})
-LoggedIn.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const loginButton = await canvas.getByRole('button', { name: /Log in/i })
-  await userEvent.click(loginButton)
-}
+export const SliderOnPage = Template.bind({})

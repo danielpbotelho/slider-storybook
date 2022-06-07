@@ -3,6 +3,7 @@ import s from './Slider.module.css'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import { Card } from '../../Molecules/Card/Card'
+import { ArrowIcon } from '../../Atoms/Icons/Icons'
 
 export const Slider = () => {
   const [selectedIndex, setSelectedIndex] = useState(1)
@@ -42,7 +43,7 @@ export const Slider = () => {
   }
 
   return (
-    <div className="w-full flex">
+    <div className="w-full flex relative">
       <div ref={refCallback} className="keen-slider">
         <Card
           index={1}
@@ -107,6 +108,34 @@ laid down a path to financial
 freedom.`}
           changeIndexTo={changeIndex}
         ></Card>
+      </div>
+      <ButtonPanel
+        nextIndex={selectedIndex + 1}
+        prevIndex={selectedIndex - 1}
+        changeIndex={changeIndex}
+      />
+    </div>
+  )
+}
+
+const ButtonPanel = ({ nextIndex, prevIndex, changeIndex }) => {
+  return (
+    <div className="grid grid-cols-2 gap-[7px] items-center absolute  bottom-0 sm:bottom-[5px]   sm:left-[22%]  right-[24px]  sm:right-0 sm:mx-auto select-none ">
+      <div
+        className="cursor-pointer"
+        onClick={() => {
+          changeIndex(prevIndex)
+        }}
+      >
+        <ArrowIcon isReversed />
+      </div>
+      <div
+        className="cursor-pointer"
+        onClick={() => {
+          changeIndex(nextIndex)
+        }}
+      >
+        <ArrowIcon />
       </div>
     </div>
   )
