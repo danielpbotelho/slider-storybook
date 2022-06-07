@@ -9,14 +9,22 @@ export const Slider = () => {
   const [refCallback, slider, sliderNode] = useKeenSlider(
     {
       loop: true,
-      duration: 700,
+      duration: 1000,
 
       mode: 'snap',
       slides: {
-        perView: 3.4,
-        origin: 'center',
+        perView: 1.4,
+        spacing: 24,
+      },
 
-        spacing: 18,
+      breakpoints: {
+        '(min-width: 640px)': {
+          slides: {
+            perView: 3.4,
+            origin: 'center',
+            spacing: 18,
+          },
+        },
       },
 
       slideChanged(e) {
@@ -34,14 +42,12 @@ export const Slider = () => {
   }
 
   return (
-    <div className=" mt-20">
-      <h1 className="  w-full text-center ">
-        Don’t trust us, trust our clients
-      </h1>
+    <div className="w-full flex">
       <div ref={refCallback} className="keen-slider">
         <Card
           index={1}
           currentIndex={selectedIndex}
+          detail={`Client in Atlanta`}
           message={`Owning my home allowed me to
 become an entrepreneur and
 laid down a path to financial
@@ -52,6 +58,7 @@ freedom.`}
         <Card
           index={2}
           currentIndex={selectedIndex}
+          detail={`Client in Atlanta`}
           message={`Owning my home allowed me to
 become an entrepreneur and
 laid down a path to financial
@@ -61,6 +68,7 @@ freedom.`}
         <Card
           index={3}
           currentIndex={selectedIndex}
+          detail={`Client in Atlanta`}
           message={`Owning my home allowed me to
 become an entrepreneur and
 laid down a path to financial
@@ -71,6 +79,7 @@ freedom.`}
         <Card
           index={4}
           currentIndex={selectedIndex}
+          detail={`Client in Atlanta`}
           message={`Owning my home allowed me to
 become an entrepreneur and
 laid down a path to financial
@@ -80,6 +89,7 @@ freedom.`}
         <Card
           index={5}
           currentIndex={selectedIndex}
+          detail={`Client in Atlanta`}
           message={`Owning my home allowed me to
 become an entrepreneur and
 laid down a path to financial
@@ -90,6 +100,7 @@ freedom.`}
           index={6}
           isLast
           currentIndex={selectedIndex}
+          detail={`Client in Atlanta`}
           message={`Owning my home allowed me to
 become an entrepreneur and
 laid down a path to financial

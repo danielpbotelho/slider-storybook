@@ -2,19 +2,21 @@ import { useState } from 'react'
 import s from './Card.module.css'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+import { Text } from '@/components/Atoms'
 
 export const Card = ({
   index,
   message,
+  detail,
   currentIndex,
   changeIndexTo,
   children,
   isLast,
 }) => {
   return (
-    <div className={`keen-slider__slide  flex flex-col `}>
+    <div className={`keen-slider__slide sm:w-[440px]  flex flex-col `}>
       <div
-        className={` w-[400px] h-[400px] ${
+        className={` aspect-square rounded-lg w-full text-center  ${
           currentIndex === index ? 'bg-green-400' : 'bg-black'
         } text-white cursor-pointer  `}
         onClick={() => {
@@ -29,10 +31,14 @@ export const Card = ({
 
         {children}
       </div>
-      <div
-        className={`${currentIndex === index ? 'flex' : 'hidden'} text-black`}
-      >
-        {message}
+      <div className={`${currentIndex === index ? 'block' : 'hidden'}`}>
+        <Text
+          variant="paragraph"
+          additionalClasses={` text-black mt-[36px] sm:mt-[48px] mb-[24px] sm:mb-[56px]`}
+        >
+          {message}
+        </Text>
+        <Text variant="text-detail">{detail}</Text>
       </div>
     </div>
   )

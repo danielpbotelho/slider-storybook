@@ -1,3 +1,53 @@
+@import url('http://fonts.cdnfonts.com/css/gothamssm');
+
+:root {
+  --neutral-600: #636260;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  font-family: 'GothamSSm', sans-serif;
+}
+
+@layer components {
+  .typo-heading1 {
+    font-family: 'GothamSSm';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 64px;
+  }
+  .typo-heading2 {
+    font-family: 'GothamSSm';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .typo-paragraph1 {
+    font-family: 'GothamSSm';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .typo-paragraph2 {
+    font-family: 'GothamSSm';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .typo-details {
+    font-family: 'GothamSSm';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
