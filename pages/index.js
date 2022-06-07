@@ -1,6 +1,9 @@
+import { Card } from "../components/Molecules";
 
 export default function Home() {
   return (
-   <div></div>
+   <div>
+     <Card/>
+   </div>
   )
 }
