@@ -11,7 +11,26 @@ export default {
   },
 }
 
-const Template = (args) => <Card />
+const Template = (args) => <Card {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  index: 1,
+  currentIndex: 2,
+  detail: `Client in Atlanta`,
+  message: `Owning my home allowed me to
+  become an entrepreneur and
+  laid down a path to financial
+  freedom.`,
+}
+
+export const Highlighted = Template.bind({})
+Highlighted.args = {
+  index: 1,
+  currentIndex: 1,
+  detail: `Client in Atlanta`,
+  message: `Owning my home allowed me to
+  become an entrepreneur and
+  laid down a path to financial
+  freedom.`,
+}
